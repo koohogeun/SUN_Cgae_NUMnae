@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1TxYWZIZHgvreE0tekdqyB3z71j" />
+  <component name="PropertiesComponent">
+    <property name="$PROJECT_DIR$/src/MiniC.g4::/auto-gen" value="false" />
+    <property name="$PROJECT_DIR$/src/MiniC.g4::/gen-listener" value="true" />
+    <property name="$PROJECT_DIR$/src/MiniC.g4::/gen-visitor" value="false" />
+    <property name="$PROJECT_DIR$/src/MiniC.g4::/output-dir" value="C:\Users\deer9\Desktop\junior_second\compiler\5-2week\BytecodeGenerator2019-master\src\generated" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/generated" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\deer9\Desktop\junior_second\compiler\5-2week\BytecodeGenerator2019-master" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="listener.main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Translator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="listener.main.Translator" />
+      <module name="BytecodeGenerator2019" />
+      <option name="PROGRAM_PARAMETERS" value="-b" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="listener.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Translator" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="" />
+      <created>1574403245482</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574403245482</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((Pair)((MiniCLexer)tokens.tokenSource)._tokenFactorySourcePair).a" custom="generated.MiniCLexer,org.antlr.v4.runtime.misc.Pair" />
+        <watch expression="((Pair)((MiniCLexer)tokens.tokenSource)._tokenFactorySourcePair).a" language="JAVA" custom="generated.MiniCLexer,org.antlr.v4.runtime.misc.Pair" />
+        <watch expression="((MiniCLexer)((Pair)((MiniCLexer)tokens.tokenSource)._tokenFactorySourcePair).a)._input" custom="generated.MiniCLexer,org.antlr.v4.runtime.misc.Pair" />
+        <watch expression="((Pair)((MiniCLexer)tokens.tokenSource)._tokenFactorySourcePair).a" custom="generated.MiniCLexer,org.antlr.v4.runtime.misc.Pair" />
+        <watch expression="params" />
+        <watch expression="params" language="JAVA" />
+        <watch expression="params.children.get(0)" />
+        <watch expression="((java.util.ArrayList)((Expr_stmtContext)ctx.children.get(0)).children).get(0)" custom="generated.MiniCParser.Expr_stmtContext,java.util.ArrayList" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
