@@ -213,7 +213,17 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             String vId = symbolTable.getVarId(ctx);
             varDecl += "ldc " + ctx.LITERAL().getText() + "\n"
                     + "istore_" + vId + "\n";
-        }
+        } else if (isDeclArr(ctx)) {
+			String vId = symbolTable.getVarId(ctx);
+			String index = newTexts.get(ctx.getChild(2));
+			String numIndex = Integer.toString(ctx.getChild(2).getChildCount());
+			int numIndexInt = ctx.getChild(2).getChildCount();
+			String dimType = "[";
+			dimType = new String(new char[numIndexInt]).replace("\0", dimType);
+			varDecl += index
+					+ "multianewarray " + dimType + "I "+ numIndex + "\n"
+					+ "astore_" + vId + "\n";
+		}
 
         newTexts.put(ctx, varDecl);
     }
@@ -517,10 +527,22 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
     @Override
     public void exitArr_decl(MiniCParser.Arr_declContext ctx) {
         super.exitArr_decl(ctx);
-        System.out.println("[DEBUG] Array grammar test");
+        String stmt = "";
+		for (int i = 0; i < ctx.getChildCount(); i++) {
+			stmt += newTexts.get(ctx.getChild(i)) + "\n";
+		}
+		newTexts.put(ctx, stmt);
     }
 
-    @Override
+	@Override
+	public void exitArr_decl_stmt(MiniCParser.Arr_decl_stmtContext ctx) {
+		super.exitArr_decl_stmt(ctx);
+		String stmt = "";
+		stmt = "bipush " + ctx.LITERAL();
+		newTexts.put(ctx, stmt);
+	}
+
+	@Override
     public void enterArr_parm(MiniCParser.Arr_parmContext ctx) {
         super.enterArr_parm(ctx);
     }

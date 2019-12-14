@@ -53,6 +53,9 @@ public class BytecodeGenListenerHelper {
 	static boolean isDeclWithInit(Local_declContext ctx) {
 		return ctx.getChildCount() == 5 ;
 	}
+	static boolean isDeclArr(Local_declContext ctx) {
+		return ctx.getChildCount() == 4 ;
+	}
 	
 	static boolean isVoidF(Fun_declContext ctx) {
 		return getTypeText((Type_specContext)ctx.getChild(0)).equals("V");
