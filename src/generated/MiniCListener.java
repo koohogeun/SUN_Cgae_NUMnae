@@ -169,4 +169,64 @@ public interface MiniCListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArgs(MiniCParser.ArgsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniCParser#arr}.
+	 * @param ctx the parse tree
+	 */
+	void enterArr(MiniCParser.ArrContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniCParser#arr}.
+	 * @param ctx the parse tree
+	 */
+	void exitArr(MiniCParser.ArrContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniCParser#arr_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterArr_stmt(MiniCParser.Arr_stmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniCParser#arr_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitArr_stmt(MiniCParser.Arr_stmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniCParser#arr_decl}.
+	 * @param ctx the parse tree
+	 */
+	void enterArr_decl(MiniCParser.Arr_declContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniCParser#arr_decl}.
+	 * @param ctx the parse tree
+	 */
+	void exitArr_decl(MiniCParser.Arr_declContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniCParser#arr_decl_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterArr_decl_stmt(MiniCParser.Arr_decl_stmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniCParser#arr_decl_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitArr_decl_stmt(MiniCParser.Arr_decl_stmtContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniCParser#arr_parm}.
+	 * @param ctx the parse tree
+	 */
+	void enterArr_parm(MiniCParser.Arr_parmContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniCParser#arr_parm}.
+	 * @param ctx the parse tree
+	 */
+	void exitArr_parm(MiniCParser.Arr_parmContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MiniCParser#arr_parm_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void enterArr_parm_stmt(MiniCParser.Arr_parm_stmtContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MiniCParser#arr_parm_stmt}.
+	 * @param ctx the parse tree
+	 */
+	void exitArr_parm_stmt(MiniCParser.Arr_parm_stmtContext ctx);
 }

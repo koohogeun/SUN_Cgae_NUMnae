@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="" />
+    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/listener/main/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/listener/main/BytecodeGenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiniC.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniC.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniC.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniC.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCBaseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniCLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniCLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listener/main/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener/main/Translator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,12 +31,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TxYWZIZHgvreE0tekdqyB3z71j" />
   <component name="PropertiesComponent">
     <property name="$PROJECT_DIR$/src/MiniC.g4::/auto-gen" value="false" />
     <property name="$PROJECT_DIR$/src/MiniC.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/src/MiniC.g4::/gen-visitor" value="false" />
     <property name="$PROJECT_DIR$/src/MiniC.g4::/output-dir" value="C:\Users\deer9\Desktop\junior_second\compiler\5-2week\BytecodeGenerator2019-master\src\generated" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/generated" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -79,6 +99,17 @@
       <updated>1574403245482</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

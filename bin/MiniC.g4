@@ -9,7 +9,7 @@ decl		: var_decl
 		| fun_decl		;
 var_decl	:  type_spec IDENT ';' 
 		| type_spec IDENT '=' LITERAL ';'	
-		| type_spec IDENT '[' LITERAL ']' ';'	;
+		| type_spec IDENT arr_decl ';'	;
 type_spec	: VOID				
 		| INT				;
 fun_decl	: type_spec IDENT '(' params ')' compound_stmt ;
@@ -17,7 +17,7 @@ params		: param (',' param)*
 		| VOID				
 		|			;
 param		: type_spec IDENT		
-		| type_spec IDENT '[' ']'	;
+		| type_spec IDENT arr_parm	;
 stmt		: expr_stmt			
 		| compound_stmt			
 		| if_stmt			
@@ -28,7 +28,7 @@ while_stmt	: WHILE '(' expr ')' stmt	;
 compound_stmt: '{' local_decl* stmt* '}'	;
 local_decl	: type_spec IDENT ';'
 		| type_spec IDENT '=' LITERAL ';'	
-		| type_spec IDENT '[' LITERAL ']' ';'	;
+		| type_spec IDENT arr_decl ';'	;
 if_stmt		: IF '(' expr ')' stmt		
 		| IF '(' expr ')' stmt ELSE stmt 		;
 return_stmt	: RETURN ';'			
@@ -36,7 +36,7 @@ return_stmt	: RETURN ';'
 expr	:  LITERAL				
 	| '(' expr ')'				 
 	| IDENT				 
-	| IDENT '[' expr ']'			 
+	| IDENT arr
 	| IDENT '(' args ')'			
 	| '-' expr				 
 	| '+' expr				 
@@ -57,9 +57,19 @@ expr	:  LITERAL
 	| expr AND expr				 
 	| expr OR expr				
 	| IDENT '=' expr			
-	| IDENT '[' expr ']' '=' expr		;
+	| IDENT arr_decl '=' expr		;
 args	: expr (',' expr)*			 
 	|					 ;
+
+arr      : arr_stmt+;
+arr_stmt : '[' expr ']';
+
+arr_decl      : arr_decl_stmt+;
+arr_decl_stmt : '[' LITERAL ']';
+
+arr_parm      : arr_parm_stmt+;
+arr_parm_stmt : '[' ']';
+
 
 VOID: 'void';
 INT: 'int';
@@ -69,7 +79,7 @@ IF: 'if';
 ELSE: 'else';
 RETURN: 'return';
 OR: 'or';
-AND: 'and';
+    AND: 'and';
 LE: '<=';
 GE: '>=';
 EQ: '==';

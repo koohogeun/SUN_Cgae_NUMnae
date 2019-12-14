@@ -362,6 +362,8 @@ import static listener.main.SymbolTable.*;
 			expr += "ldc 1" + "\n"
 					+ "iadd" + "\n"
 					+ "istore_" + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
+			if (ctx.parent instanceof MiniCParser.ArgsContext)
+				expr += "iload_" + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
 			break;
 		case "!":
 			expr += "ifeq " + l2 + "\n"
