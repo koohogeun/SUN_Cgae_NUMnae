@@ -45,9 +45,9 @@ public class BytecodeGenListenerHelper {
 	static int initVal(Local_declContext ctx) {
 		return Integer.parseInt(ctx.LITERAL().getText());
 	}
-
-	static boolean isArrayDecl(Local_declContext ctx) {
-		return ctx.getChildCount() == 6;
+	//수정 - 김예원 19-12-14
+	static boolean isArrayDecl(Local_declContext ctx) {	//길이가 아닌 arr_decl()의 존재여부로 True or False 리턴
+		return ctx.arr_decl() != null;
 	}
 	
 	static boolean isDeclWithInit(Local_declContext ctx) {
