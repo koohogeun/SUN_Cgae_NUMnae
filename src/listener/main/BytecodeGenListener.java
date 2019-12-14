@@ -498,4 +498,34 @@ import static listener.main.SymbolTable.*;
 		newTexts.put(ctx, argsStr);
 	}
 
-}
+		@Override
+		public void enterArr(MiniCParser.ArrContext ctx) {
+			super.enterArr(ctx);
+		}
+
+		@Override
+		public void exitArr(MiniCParser.ArrContext ctx) {
+			super.exitArr(ctx);
+		}
+
+		@Override
+		public void enterArr_decl(MiniCParser.Arr_declContext ctx) {
+			super.enterArr_decl(ctx);
+		}
+
+		@Override
+		public void exitArr_decl(MiniCParser.Arr_declContext ctx) {
+			super.exitArr_decl(ctx);
+			System.out.println("[DEBUG] Array grammar test");
+		}
+
+		@Override
+		public void enterArr_parm(MiniCParser.Arr_parmContext ctx) {
+			super.enterArr_parm(ctx);
+		}
+
+		@Override
+		public void exitArr_parm(MiniCParser.Arr_parmContext ctx) {
+			super.exitArr_parm(ctx);
+		}
+	}

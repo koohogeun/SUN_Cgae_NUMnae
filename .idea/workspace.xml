@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/listener/main/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/listener/main/BytecodeGenListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MiniC.g4" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiniC.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniC.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniC.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniC.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniC.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniCBaseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCBaseListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniCLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniCLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCLexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniCLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniCListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/generated/MiniCParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/MiniCParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/listener/main/Translator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener/main/Translator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
-    </list>
+    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +96,33 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1461</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1522</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1565</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1586</line>
+          <properties class="generated.MiniCParser" method="arr_decl">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((Pair)((MiniCLexer)tokens.tokenSource)._tokenFactorySourcePair).a" custom="generated.MiniCLexer,org.antlr.v4.runtime.misc.Pair" />
