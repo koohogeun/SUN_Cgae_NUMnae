@@ -331,6 +331,14 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             if (ctx.args() != null) {        // function calls
                 expr = handleFunCall(ctx, expr);
             } else { // expr
+            	expr = "aload_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+            	expr = exitArr_decl(ctx.arr_decl(), expr);
+            	//expr += "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+            	//expr += "iload_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+            	expr += newTexts.get(ctx.expr(0))
+            			//+ "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n"
+            			//+ "iload_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n"
+            			+ "iastore \n";
                 // Arrays: TODO
             }
         }
