@@ -346,9 +346,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             	int arr_decl_child = ctx.arr_decl().getChildCount();		//count '[]'
             	for (int i =0 ;i < arr_decl_child-1; i++) {
             		String current_index = ctx.arr_decl().getChild(i).getChild(1).getText();	//arr_decl()은 [ Literal ]이기 때문에 getText()써도 됨.
-            		expr += "iconst " + current_index + "\naaload\n";
+            		expr += "iconst_" + current_index + "\naaload\n";
             	}
-            	expr += "iconst " + ctx.arr_decl().getChild(arr_decl_child-1).getChild(1).getText() +"\n" + newTexts.get(ctx.expr(0)) 
+            	expr += "iconst_" + ctx.arr_decl().getChild(arr_decl_child-1).getChild(1).getText() +"\n" + newTexts.get(ctx.expr(0)) 
             			+ "iastore\n";
             } else { // expr
                 // Arrays: TODO
