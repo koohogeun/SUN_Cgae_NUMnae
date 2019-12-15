@@ -213,7 +213,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
         if (isDeclWithInit(ctx)) {
             String vId = symbolTable.getVarId(ctx);
             varDecl += "ldc " + ctx.LITERAL().getText() + "\n"
-                    + "istore_" + vId + "\n";
+                    + "istore " + vId + "\n";
         } else if (isDeclArr(ctx)) {
             String vId = symbolTable.getVarId(ctx);
             String index = newTexts.get(ctx.getChild(2));
@@ -304,7 +304,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             if (ctx.IDENT() != null) {
                 String idName = ctx.IDENT().getText();
                 if (symbolTable.getVarType(idName) == Type.INT) {
-                    expr += "iload_" + symbolTable.getVarId(idName) + " \n";
+                    expr += "iload " + symbolTable.getVarId(idName) + " \n";
                 }
                 //else	// Type int array => Later! skip now..
                 //	expr += "           lda " + symbolTable.get(ctx.IDENT().getText()).value + " \n";
@@ -331,7 +331,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             	}else {
 			expr = newTexts.get(ctx.expr(0));
             		if(!ctx.getChild(2).getChild(1).getText().equals(".*"))
-            			expr += "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+            			expr += "istore " + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
             	}
                 
             } else {                                            // binary operation
@@ -347,13 +347,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
                 String array_varID = symbolTable.getVarId(ctx.IDENT().getText());
                 expr += "aload " + array_varID + "\n";
                 int arr_child = ctx.getChild(1).getChildCount();        //count '[]'
-                for (int i = 0; i < arr_child; i++) {
-                    String Test = newTexts.get(ctx.arr().getChild(i).getChild(1));
-                    String current_index = ctx.arr().getChild(i).getChild(1).getText();    //arr_decl()은 [ Literal ]이기 때문에 getText()써도 됨.
-                    expr += "iconst_" + current_index + "\naaload\n";
+                for (int i = 0; i < arr_child - 1; i++) {
+                    String index = newTexts.get(ctx.arr().getChild(i).getChild(1));
+                    expr += index + "aaload\n";
                 }
-                expr += "iconst_" + ctx.arr().getChild(arr_child - 1).getChild(1).getText() + "\n" + newTexts.get(ctx.expr(0))
-                        + "iastore\n";
+                String index = newTexts.get(ctx.arr().getChild(arr_child - 1).getChild(1));
+                expr += index + newTexts.get(ctx.expr(0)) + "iastore\n";
             } else if (ctx.getChild(1) instanceof MiniCParser.Arr_declContext) {    //IDENT arr_decl '=' expr
                 String array_varID = symbolTable.getVarId(ctx.IDENT().getText());
                 expr += "aload " + array_varID + "\n";
@@ -392,16 +391,16 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             case "--":
                 expr += "ldc 1" + "\n"
                         + "isub" + "\n"
-                        + "istore_" + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
+                        + "istore " + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
                 if (ctx.parent instanceof MiniCParser.ArgsContext)
-                    expr += "iload_" + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
+                    expr += "iload " + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
                 break;
             case "++":
                 expr += "ldc 1" + "\n"
                         + "iadd" + "\n"
-                        + "istore_" + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
+                        + "istore " + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
                 if (ctx.parent instanceof MiniCParser.ArgsContext)
-                    expr += "iload_" + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
+                    expr += "iload " + symbolTable.getVarId(ctx.getChild(1).getText()) + "\n";
                 break;
             case "!":
                 expr += "ifeq " + l2 + "\n"

@@ -61,7 +61,8 @@ expr	:  LITERAL
 	| IDENT arr_parm
 	| expr '.*' expr	
 	| IDENT '=' expr			
-	| IDENT arr_decl '=' expr		;
+	| IDENT arr_decl '=' expr
+	    | IDENT arr '=' expr	;
 args	: expr (',' expr)*
 	|					 ;
 
