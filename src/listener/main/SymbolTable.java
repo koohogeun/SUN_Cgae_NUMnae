@@ -59,7 +59,7 @@ import static listener.main.BytecodeGenListenerHelper.*;
 		_lsymtable.clear();
 		_localVarID = 0;
 		_labelID = 0;
-		_tempVarID = 32;		
+		_tempVarID = 31;		
 	}
 	/*
 	 *  로컬 변수를 테이블에 저장하는 함수이다.
