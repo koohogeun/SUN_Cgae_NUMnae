@@ -22,9 +22,11 @@ stmt		: expr_stmt
 		| compound_stmt			
 		| if_stmt			
 		| while_stmt			
+		| for_stmt
 		| return_stmt			;
 expr_stmt	: expr ';'			;
 while_stmt	: WHILE '(' expr ')' stmt	;
+for_stmt : FOR '(' local_decl expr ';' expr ')'  compound_stmt ;
 compound_stmt: '{' local_decl* stmt* '}'	;
 local_decl	: type_spec IDENT ';'
 		| type_spec IDENT '=' LITERAL ';'	
@@ -73,7 +75,7 @@ arr_parm_stmt : '[' ']';
 
 VOID: 'void';
 INT: 'int';
-
+FOR : 'for' ;
 WHILE: 'while';
 IF: 'if';
 ELSE: 'else';

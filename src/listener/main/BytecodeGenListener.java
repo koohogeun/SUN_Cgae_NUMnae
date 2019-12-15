@@ -126,6 +126,8 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
                 stmt += newTexts.get(ctx.while_stmt());
             else if (ctx.return_stmt() != null)     // return_stmt
                 stmt += newTexts.get(ctx.return_stmt());
+            else if (ctx.for_stmt() != null)
+            	stmt += newTexts.get(ctx.for_stmt());
         }
         newTexts.put(ctx, stmt);
     }
@@ -574,5 +576,22 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
     @Override
     public void exitArr_parm(MiniCParser.Arr_parmContext ctx) {
         super.exitArr_parm(ctx);
+    }
+    @Override
+    public void exitFor_stmt(MiniCParser.For_stmtContext ctx) {
+    	// for '(' local_decl expr ';' expr ')' compound_stmt		=> childCount = 8
+    	String outer = symbolTable.newLabel();
+    	String repeat = symbolTable.newLabel();
+    	String expr = "";
+    	expr += newTexts.get(ctx.getChild(2))		//init variable
+    			+ repeat + ": \n"					//repeat start
+    			+ newTexts.get(ctx.getChild(3))		//is condition true?
+    			+ "ifeq " + outer +"\n"
+    			+ newTexts.get(ctx.compound_stmt())
+    			+ newTexts.get(ctx.getChild(5))		//Progress condition
+    			+ "goto " + repeat + "\n"
+    			+ outer + ": \n";
+    			
+    	newTexts.put(ctx, expr);
     }
 }
