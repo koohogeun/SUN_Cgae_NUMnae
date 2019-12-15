@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="" />
+    <list default="true" id="5c9b3cc6-2bc3-4eaa-889d-2450f8a72a93" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/listener/main/BytecodeGenListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/listener/main/BytecodeGenListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listener/main/BytecodeGenListenerHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/listener/main/BytecodeGenListenerHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,12 +21,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TxYWZIZHgvreE0tekdqyB3z71j" />
   <component name="PropertiesComponent">
     <property name="$PROJECT_DIR$/src/MiniC.g4::/auto-gen" value="false" />
     <property name="$PROJECT_DIR$/src/MiniC.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/src/MiniC.g4::/gen-visitor" value="false" />
     <property name="$PROJECT_DIR$/src/MiniC.g4::/output-dir" value="C:\Users\deer9\Desktop\junior_second\compiler\5-2week\BytecodeGenerator2019-master\src\generated" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/generated" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -80,7 +90,50 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1461</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1522</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1565</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/listener/main/BytecodeGenListener.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/generated/MiniCParser.java</url>
+          <line>1586</line>
+          <properties class="generated.MiniCParser" method="arr_decl">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((Pair)((MiniCLexer)tokens.tokenSource)._tokenFactorySourcePair).a" custom="generated.MiniCLexer,org.antlr.v4.runtime.misc.Pair" />
