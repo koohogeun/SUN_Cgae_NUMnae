@@ -230,7 +230,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
     }
 
     /*
-     * compound statement를 추가해주는 함수이다.
+     * co   mpound statement를 추가해주는 함수이다.
      * local decl 과 stmt 를 여러개 가질 수 있기 때문에 foreach 문을 사용하여서
      * 가지고 있는 local decl과 stmt들을 모두 추가해준다.
      */
@@ -342,7 +342,18 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
         else if (ctx.getChildCount() == 4) {
             if (ctx.args() != null) {        // function calls
                 expr = handleFunCall(ctx, expr);
-            } else if (ctx.arr_decl() != null) {    //IDENT arr_decl '=' expr
+            } else if (ctx.getChild(1) instanceof MiniCParser.ArrContext) {    //IDENT arr_decl '=' expr
+                String array_varID = symbolTable.getVarId(ctx.IDENT().getText());
+                expr += "aload " + array_varID + "\n";
+                int arr_child = ctx.getChild(1).getChildCount();        //count '[]'
+                for (int i = 0; i < arr_child; i++) {
+                    String Test = newTexts.get(ctx.arr().getChild(i).getChild(1));
+                    String current_index = ctx.arr().getChild(i).getChild(1).getText();    //arr_decl()은 [ Literal ]이기 때문에 getText()써도 됨.
+                    expr += "iconst_" + current_index + "\naaload\n";
+                }
+                expr += "iconst_" + ctx.arr().getChild(arr_child - 1).getChild(1).getText() + "\n" + newTexts.get(ctx.expr(0))
+                        + "iastore\n";
+            } else if (ctx.getChild(1) instanceof MiniCParser.Arr_declContext) {    //IDENT arr_decl '=' expr
                 String array_varID = symbolTable.getVarId(ctx.IDENT().getText());
                 expr += "aload " + array_varID + "\n";
                 int arr_decl_child = ctx.arr_decl().getChildCount();        //count '[]'
@@ -352,7 +363,8 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
                 }
                 expr += "iconst_" + ctx.arr_decl().getChild(arr_decl_child - 1).getChild(1).getText() + "\n" + newTexts.get(ctx.expr(0))
                         + "iastore\n";
-            } else { // expr
+            }
+            else { // expr
                 // Arrays: TODO
             }
         }
