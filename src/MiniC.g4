@@ -58,10 +58,11 @@ expr	:  LITERAL
 	| '!' expr					 
 	| expr AND expr				 
 	| expr OR expr				
-	| IDENT '=' expr
-	| IDENT arr_decl '=' expr
-	| IDENT arr '=' expr		;
-args	: expr (',' expr)*			 
+	| IDENT arr_parm
+	| expr '.*' expr	
+	| IDENT '=' expr			
+	| IDENT arr_decl '=' expr		;
+args	: expr (',' expr)*
 	|					 ;
 
 arr      : arr_stmt+;
