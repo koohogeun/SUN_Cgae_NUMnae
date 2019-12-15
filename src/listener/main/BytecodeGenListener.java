@@ -329,8 +329,9 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             		expr += newTexts.get(ctx.expr(0).arr().getChild(child_count-1)) + "iaload \n";
             		expr += "istore " + symbolTable.getVarId(ctx.IDENT().getText()) + "\n";
             	}else {
-            		expr = newTexts.get(ctx.expr(0))
-                            + "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+			expr = newTexts.get(ctx.expr(0));
+            		if(!ctx.getChild(2).getChild(1).getText().equals(".*"))
+            			expr += "istore_" + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
             	}
                 
             } else {                                            // binary operation
@@ -405,7 +406,118 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
     private String handleBinExpr(MiniCParser.ExprContext ctx, String expr) {
         String l2 = symbolTable.newLabel();
         String lend = symbolTable.newLabel();
-
+	
+	if(ctx.getChild(1).getText().equals(".*")) {//배열 연산
+        	String parent_index = symbolTable.getVarId(ctx.parent.getChild(0).getText());
+        	String child1_index = symbolTable.getVarId(ctx.getChild(0).getChild(0).getText());
+        	String child2_index = symbolTable.getVarId(ctx.getChild(2).getChild(0).getText());
+        	int vector = ctx.getChild(0).getChild(1).getChildCount();
+        	String i1 = symbolTable.newTempVar();
+        	String label1 = symbolTable.newLabel();
+        	String label1_out = symbolTable.newLabel();
+        	if(vector == 1) {//1차원 연산
+        		expr += "ldc 0\n"
+            			+ "istore " + i1 + "\n"
+            			+ label1 + ": \n" 
+        				+ "iload " + i1 + "\n"
+        				+ "aload_" + parent_index + "\n"
+            			+ "arraylength\n"
+        				+ "if_icmpge " + label1_out + "\n"
+        				+ "aload_" + parent_index + "\n"
+        				+ "iload " + i1 + "\n"
+        				+ "aload_" + child1_index + "\n"
+        				+ "iload " + i1 + "\n"
+        				+ "iaload\n"
+        				+ "aload_" + child2_index + "\n"
+        				+ "iload " + i1 + "\n"
+        				+ "iaload\n"
+        				+ "imul\n"
+        				+ "iastore\n"
+        				+ "iinc " + i1 + " 1\n"
+        				+ "goto " + label1 + "\n"
+        				+ label1_out + ": \n";
+        	}else if(vector == 2) {//2차원 연산
+        		String i2 = symbolTable.newTempVar();
+        		String label2 = symbolTable.newLabel();
+            	String label2_out = symbolTable.newLabel();
+            	String i3 = symbolTable.newTempVar();
+        		String label3 = symbolTable.newLabel();
+            	String label3_out = symbolTable.newLabel();
+            	String sum = symbolTable.newTempVar();
+            	expr += "ldc 0\n"
+            			+ "istore " + sum + "\n"
+            			+ "ldc 0\n"
+            			+ "istore " + i1 + "\n"
+            			+ label1 + ": \n" 
+        				+ "iload " + i1 + "\n"
+        				+ "aload_" + child1_index + "\n"
+            			+ "arraylength\n"
+        				+ "if_icmpge " + label1_out + "\n"
+        				
+        				+ "ldc 0\n"
+            			+ "istore " + i2 + "\n"
+            			+ label2 + ": \n" 
+        				+ "iload " + i2 + "\n"
+        				+ "aload_" + child2_index + "\n"
+        				+ "iconst_0\n"
+        				+ "aaload\n"
+            			+ "arraylength\n"
+        				+ "if_icmpge " + label2_out + "\n"
+        				
+        				+ "ldc 0\n"
+            			+ "istore " + i3 + "\n"
+            			+ label3 + ": \n" 
+        				+ "iload " + i3 + "\n"
+        				+ "aload_" + child2_index + "\n"
+            			+ "arraylength\n"
+        				+ "if_icmpge " + label3_out + "\n"
+        				
+        				+ "iload " + sum + "\n"
+        				
+        				+ "aload_" + child1_index + "\n"
+        				+ "iload " + i1 + "\n"
+        				+ "aaload\n"
+        				+ "iload " + i3 + "\n"
+        				+ "iaload\n"
+        				
+						+ "aload_" + child2_index + "\n" 
+						+ "iload " + i3 + "\n" 
+						+ "aaload\n"
+						+ "iload " + i2 + "\n" 
+						+ "iaload\n"
+        				
+						+ "imul\n"
+						+ "iadd\n"
+						+ "istore " + sum + "\n"
+        				
+        				+ "iinc " + i3 + " 1\n"
+						+ "goto " + label3 + "\n"
+						+ label3_out + ": \n"
+        				
+						+ "aload_" + parent_index + "\n" 
+						+ "iload " + i1 + "\n" 
+						+ "aaload\n"
+						+ "iload " + i3 + "\n" 
+						+ "iload " + sum + "\n" 
+						+ "iastore\n"
+						
+            			+ "ldc 0\n"
+            			+ "istore " + sum + "\n"
+            			
+        				+ "iinc " + i2 + " 1\n"
+						+ "goto " + label2 + "\n"
+						+ label2_out + ": \n"
+        				
+        				+ "iinc " + i1 + " 1\n"
+						+ "goto " + label1 + "\n"
+						+ label1_out + ": \n";
+            	
+        	}else if(vector == 3) {//3차원 연산
+        		
+        	}
+        	return expr;
+        }
+	    
         expr += newTexts.get(ctx.expr(0));
         expr += newTexts.get(ctx.expr(1));
 
