@@ -338,9 +338,12 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
             		expr += newTexts.get(ctx.expr(0).arr().getChild(child_count-1)) + "iaload \n";
             		expr += "istore " + symbolTable.getVarId(ctx.IDENT().getText()) + "\n";
             	}else {
-			expr = newTexts.get(ctx.expr(0));
-            		if(!ctx.getChild(2).getChild(1).getText().equals(".*"))
-            			expr += "istore " + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+			if (ctx.getChild(2).getChildCount() == 3 && ctx.getChild(2).getChild(1).getText().equals(".*"))
+				expr = newTexts.get(ctx.expr(0));
+			else {
+				expr = newTexts.get(ctx.expr(0));
+				expr += "istore " + symbolTable.getVarId(ctx.IDENT().getText()) + " \n";
+			}
             	}
                 
             } else {                                            // binary operation
@@ -517,7 +520,7 @@ public class BytecodeGenListener extends MiniCBaseListener implements ParseTreeL
 						+ "aload_" + parent_index + "\n" 
 						+ "iload " + i1 + "\n" 
 						+ "aaload\n"
-						+ "iload " + i3 + "\n" 
+						+ "iload " + i2 + "\n" 
 						+ "iload " + sum + "\n" 
 						+ "iastore\n"
 						
